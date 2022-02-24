@@ -9,7 +9,6 @@ import exceptions.ElementNotFoundException;
 
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class LinkedBinarySearchTree<T> extends LinkedBinaryTree<T> 

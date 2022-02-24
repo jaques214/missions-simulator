@@ -7,7 +7,6 @@ package structures;
 
 /**
  *
- * @author Jaques
  */
 public class DoubleNode<T> {
     private DoubleNode<T> next;

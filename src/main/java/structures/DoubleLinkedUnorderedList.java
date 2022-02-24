@@ -8,7 +8,6 @@ import exceptions.EmptyCollectionException;
 
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class DoubleLinkedUnorderedList<T> extends DoubleLinkedList<T> implements UnorderedListADT<T> {

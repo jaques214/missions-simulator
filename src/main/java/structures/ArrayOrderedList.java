@@ -9,7 +9,6 @@ import exceptions.NonComparableElementException;
 
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class ArrayOrderedList<T> extends ArrayList<T> implements OrderedListADT<T> {

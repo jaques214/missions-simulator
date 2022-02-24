@@ -1,0 +1,7 @@
+MissionID: pata de coelho, Version: 1
+
+State: Success, Points: 70, Steps: 4
+	Path to Target: Garagem - Escada de Emergência - Escritório 1
+	Path to Exit: Escritório 1 - Escada de Emergência
+
+

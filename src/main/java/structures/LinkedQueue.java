@@ -14,7 +14,6 @@ import exceptions.EmptyCollectionException;
  * ED - Estruturas de Dados
  * </h3>
  * <p>Description: Queue Implementation using Linked List</p>
- * @author Jaques
  */
 public class LinkedQueue<T> implements QueueADT<T> {
     private int count;

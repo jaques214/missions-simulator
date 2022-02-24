@@ -7,7 +7,6 @@ package structures;
 import exceptions.EmptyCollectionException;
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class ArrayStack<T> implements StackADT<T> {

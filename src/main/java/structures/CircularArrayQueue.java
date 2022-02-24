@@ -9,7 +9,6 @@ import exceptions.EmptyCollectionException;
 
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class CircularArrayQueue<T> implements QueueADT<T> {

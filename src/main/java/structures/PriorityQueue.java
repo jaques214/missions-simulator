@@ -7,11 +7,7 @@ package structures;
 
 import exceptions.EmptyCollectionException;
 
-/**
- *
- * @author Jaques
- */
-public class PriorityQueue<T> extends ArrayHeap<PriorityQueueNode<T>> {
+public class PriorityQueue<T> extends LinkedHeap<PriorityQueueNode<T>> {
 
     /**
      * Creates an empty priority queue.
@@ -27,8 +23,7 @@ public class PriorityQueue<T> extends ArrayHeap<PriorityQueueNode<T>> {
      * @param priority the integer priority of the element to be added
      */
     public void addElement(T object, int priority) {
-        PriorityQueueNode<T> node
-                = new PriorityQueueNode<T>(object, priority);
+        PriorityQueueNode<T> node = new PriorityQueueNode<>(object, priority);
         super.addElement(node);
     }
 
@@ -39,7 +34,7 @@ public class PriorityQueue<T> extends ArrayHeap<PriorityQueueNode<T>> {
      * @return a reference to the next highest priority element in this queue
      */
     public T removeNext() throws EmptyCollectionException {
-        PriorityQueueNode<T> temp = (PriorityQueueNode<T>) super.removeMin();
+        PriorityQueueNode<T> temp = super.removeMin();
         return temp.getElement();
     }
 }

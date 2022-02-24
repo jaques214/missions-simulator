@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"exceptions"},{"l":"pt.ipp.estg.game"},{"l":"pt.ipp.estg.interfaces"},{"l":"structures"}]

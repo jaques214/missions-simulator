@@ -1,0 +1,24 @@
+image: gradle:openj9
+stages:
+  - build
+  - test
+  
+variables:
+  GIT_STRATEGY: clone
+  GIT_DEPTH: 10
+ 
+build:
+  stage: build
+  script:
+    - ./gradlew assemble
+  tags:
+    - docker-runner
+test:
+  script:
+    - ./gradlew test
+  artifacts:
+    paths:
+      - build/test-results/test/TEST-*.xml
+      - build/reports/tests/test/*
+  tags:
+    - docker-runner

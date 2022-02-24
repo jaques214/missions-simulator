@@ -8,7 +8,6 @@ import exceptions.EmptyCollectionException;
 
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class ArrayUnorderedList<T> extends ArrayList<T> implements UnorderedListADT<T> {

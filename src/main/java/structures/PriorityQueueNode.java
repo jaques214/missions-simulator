@@ -5,10 +5,6 @@
  */
 package structures;
 
-/**
- *
- * @author Jaques
- */
 public class PriorityQueueNode<T> implements Comparable<PriorityQueueNode> {
 
     private static int nextorder = 0;

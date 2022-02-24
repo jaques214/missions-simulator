@@ -7,10 +7,6 @@ package structures;
 
 import exceptions.NonComparableElementException;
 
-/**
- *
- * @author Jaques
- */
 public interface OrderedListADT<T> extends ListADT<T> {
     /**
     * Adds the specified element to this list at

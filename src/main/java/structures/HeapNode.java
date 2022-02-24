@@ -7,7 +7,6 @@ package structures;
 
 /**
  *
- * @author Jaques
  */
 public class HeapNode<T> extends BinaryTreeNode<T> {
     protected HeapNode<T> parent;

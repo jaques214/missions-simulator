@@ -5,10 +5,7 @@
  */
 package structures;
 import exceptions.NullException;
-/**
- *
- * @author Jaques
- */
+
 public class LinkedStack<T> {
     int count;
     LinkedNode<T> top;
@@ -20,35 +17,26 @@ public class LinkedStack<T> {
     
     public void push(T element) {
         //1º Definir LinkedNode
-        LinkedNode<T> newNode = new LinkedNode<T>(element);
+        LinkedNode<T> newNode = new LinkedNode<>(element);
         newNode.setElement(element);
         if(this.top == null) {
             this.top = newNode;
         }
         else {
             newNode.setNext(top);
-            top = newNode;   
+            top = newNode;
         }
         this.count++;
     }
-    
-    public void pop() throws NullException {
-        if(this.count == 0) throw new NullException("Não existem elementos na lista ligada");
-        LinkedNode<T> temp = this.top;
-        LinkedNode<T> prev = null;
 
-        if (temp != null) {
-            top = temp.getNext();
-        }
+    public T pop() throws NullException {
+        if (isEmpty()) throw new NullException("Não existem elementos na lista ligada");
 
-        prev = temp;
-        temp = temp.getNext();
-        
-        if (prev == null) {
-            this.top = temp.getNext();
-        }
-        
-        this.count--;
+        T result = top.getElement();
+        top = top.getNext();
+        count--;
+
+        return result;
     }
     
     public T peek() throws NullException {

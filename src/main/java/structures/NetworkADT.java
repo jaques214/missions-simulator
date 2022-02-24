@@ -10,7 +10,6 @@ import exceptions.UnknownPathException;
 
 /**
  * NetworkADT defines the interface to a network.
- * @author Jaques
  * @param <T>
  * 
  */

@@ -9,7 +9,6 @@ import exceptions.EmptyCollectionException;
 
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class ArrayHeap<T> extends ArrayBinaryTree<T> implements HeapADT<T> {
@@ -17,10 +16,6 @@ public class ArrayHeap<T> extends ArrayBinaryTree<T> implements HeapADT<T> {
     public ArrayHeap() {
         super();
     }
-
-//    public ArrayHeap(T element) {
-//        super(element);
-//    }
 
     /**
      * Adds the specified element to this heap in the appropriate position
@@ -58,7 +53,7 @@ public class ArrayHeap<T> extends ArrayBinaryTree<T> implements HeapADT<T> {
         T temp;
         int next = count - 1;
 
-        while ((next != 0) && (((Comparable)tree[next]).compareTo(tree[(next - 1) / 2]) < 0)) {
+        while ((next != 0) && (((Comparable<T>)tree[next]).compareTo(tree[(next - 1) / 2]) < 0)) {
             temp = tree[next];
             tree[next] = tree[(next - 1) / 2];
             tree[(next - 1) / 2] = temp;
@@ -105,22 +100,22 @@ public class ArrayHeap<T> extends ArrayBinaryTree<T> implements HeapADT<T> {
         int next;
         
         // Se a heap não tiver filhos o próximo elemento fica igual ao número de nós 
-        if ((tree[left] == null) && (tree[right] == null)) {
+        if ( (tree[left] == null) && (tree[right] == null) ) {
             next = count;
         } else if (tree[left] == null) {
             next = right;
         } else if (tree[right] == null) {
             next = left;
-        } else if (((Comparable)tree[left]).compareTo(tree[right]) < 0) {
+        } else if (((Comparable<T>)tree[left]).compareTo(tree[right]) < 0) {
             next = left;
         } else {
             next = right;
         }
         //temp = tree[node]; // valor do último nó
         
-        while ((next < count) && (((Comparable)tree[next]).compareTo(tree[node]) < 0)) {
+        while ((next < count) && (((Comparable<T>)tree[next]).compareTo(tree[node]) < 0)) {
             temp = tree[node];
-            //Sustitui-se o último nó pelo nó menor
+            //Substitui-se o último nó pelo nó menor
             tree[node] = tree[next];
             tree[next] = temp;
             //System.out.println("Troquei a " + tree[node] + " com " + tree[next]);
@@ -133,7 +128,7 @@ public class ArrayHeap<T> extends ArrayBinaryTree<T> implements HeapADT<T> {
                 next = right;
             } else if (tree[right] == null) {
                 next = left;
-            } else if (((Comparable)tree[left]).compareTo(tree[right]) < 0) {
+            } else if (((Comparable<T>)tree[left]).compareTo(tree[right]) < 0) {
                 next = left;
             } else {
                 next = right;

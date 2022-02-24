@@ -10,7 +10,6 @@ import exceptions.*;
 import java.util.Iterator;
 /**
  *
- * @author Jaques
  */
 public interface BinaryTreeADT<T> {
     /**

@@ -10,7 +10,6 @@ import exceptions.EmptyCollectionException;
 /**
  * Heap implements a heap.
  *
- * @author Jaques
  * @param <T>
  */
 public class LinkedHeap<T> extends LinkedBinaryTree<T> implements HeapADT<T> {
@@ -111,7 +110,7 @@ public class LinkedHeap<T> extends LinkedBinaryTree<T> implements HeapADT<T> {
     /**
      * Returns the node that will be the new last node after a remove.
      *
-     * @return the node that willbe the new last node after a remove
+     * @return the node that will be the new last node after a remove
      */
     private HeapNode<T> getNewLastNode() {
         HeapNode<T> result = lastNode;

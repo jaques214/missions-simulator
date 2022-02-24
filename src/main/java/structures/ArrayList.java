@@ -12,7 +12,6 @@ import java.util.Iterator;
 
 /**
  *
- * @author Jaques
  */
 public abstract class ArrayList<T> implements ListADT<T>  {
     private final int SIZE = 100;
@@ -83,7 +82,12 @@ public abstract class ArrayList<T> implements ListADT<T>  {
     @Override
     public T last() throws EmptyCollectionException {
         if(isEmpty()) throw new EmptyCollectionException("A lista está vazia");
-        return list[front];
+        return list[rear-1];
+    }
+
+    public T get(int i) {
+        if(i >= this.rear || i < 0) throw new IndexOutOfBoundsException("Index: " + i + ", Size: " + i);
+        return list[i];
     }
 
     @Override

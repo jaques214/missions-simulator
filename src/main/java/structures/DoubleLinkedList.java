@@ -11,7 +11,6 @@ import java.util.Iterator;
 
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public abstract class DoubleLinkedList<T> implements ListADT<T> {

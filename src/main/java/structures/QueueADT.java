@@ -5,10 +5,7 @@
  */
 package structures;
 import exceptions.EmptyCollectionException;
-/**
- *
- * @author Jaques
- */
+
 public interface QueueADT<T> {
     
     /**

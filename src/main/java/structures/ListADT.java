@@ -9,10 +9,6 @@ import exceptions.EmptyCollectionException;
 
 import java.util.Iterator;
 
-/**
- *
- * @author Jaques
- */
 public interface ListADT<T> extends Iterable<T> {
     /**
     * Removes and returns the first element from this list.

@@ -5,10 +5,7 @@
  */
 package structures;
 import exceptions.EmptyCollectionException;
-/**
- *
- * @author Jaques
- */
+
 public interface StackADT<T> {
     
     /** Adds one element to the top of this stack.

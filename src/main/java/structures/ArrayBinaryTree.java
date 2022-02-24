@@ -11,7 +11,6 @@ import java.util.Iterator;
 
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class ArrayBinaryTree<T> implements BinaryTreeADT<T> {
@@ -94,24 +93,24 @@ public class ArrayBinaryTree<T> implements BinaryTreeADT<T> {
 
     @Override
     public Iterator<T> iteratorInOrder() {
-        ArrayUnorderedList<T> templist = new ArrayUnorderedList<T>();
-        inorder(0, templist);
-        return templist.iterator();
+        ArrayUnorderedList<T> tempList = new ArrayUnorderedList<>();
+        inorder(0, tempList);
+        return tempList.iterator();
     }
     
-    protected void inorder (int node, ArrayUnorderedList<T> templist) {
+    protected void inorder (int node, ArrayUnorderedList<T> tempList) {
         if (node < count) {
             if (tree[node] != null) {
-                inorder ((node+1)*2-1, templist);
-                templist.addToRear(tree[node]);
-                inorder ((node+1)*(2+1)-1, templist);
+                inorder ((node+1)*2-1, tempList);
+                tempList.addToRear(tree[node]);
+                inorder ((node+1)*(2+1)-1, tempList);
             }
         }
     }
 
     @Override
     public Iterator<T> iteratorPreOrder() {
-        ArrayUnorderedList<T> templist = new ArrayUnorderedList<T>();
+        ArrayUnorderedList<T> templist = new ArrayUnorderedList<>();
         preorder(0, templist);
         return templist.iterator();
     }
@@ -128,7 +127,7 @@ public class ArrayBinaryTree<T> implements BinaryTreeADT<T> {
 
     @Override
     public Iterator<T> iteratorPostOrder() {
-        ArrayUnorderedList<T> templist = new ArrayUnorderedList<T>();
+        ArrayUnorderedList<T> templist = new ArrayUnorderedList<>();
         postorder(0, templist);
         return templist.iterator();
     }
@@ -145,7 +144,7 @@ public class ArrayBinaryTree<T> implements BinaryTreeADT<T> {
 
     @Override
     public Iterator<T> iteratorLevelOrder() {
-        ArrayUnorderedList<T> tempList = new ArrayUnorderedList<T>();
+        ArrayUnorderedList<T> tempList = new ArrayUnorderedList<>();
         levelorder(0, tempList);
 
         return tempList.iterator();

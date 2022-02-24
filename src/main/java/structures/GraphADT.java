@@ -10,7 +10,6 @@ import java.util.Iterator;
 /**
  * GraphADT defines the interface to a graph data structure.
  *
- * @author Jaques
  */
 public interface GraphADT<T> {
 

@@ -8,7 +8,6 @@ package structures;
 import exceptions.ElementNotFoundException;
 /**
  *
- * @author Jaques
  */
 public interface BinarySearchTreeADT<T> extends BinaryTreeADT<T> {
     

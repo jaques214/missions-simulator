@@ -1,0 +1,17 @@
+{
+  "missionID": "coelho",
+  "version": 2,
+  "target": {
+    "division": "Armazém",
+    "type": "armas"
+  },
+  "results": [
+    {
+      "points": 68,
+      "state": "Mission Success",
+      "pathToTarget": "Heliporto-Escada 6-Camaratas-Escada 5-Armazém",
+      "pathToExit": "Armazém-Escada 5-Escritório 3-Escada 4-Corredor 2-Segurança-Hall-Escada 3-Corredor 1-Escada 3-Corredor 1-Escritório 2-Corredor 1-Escada 2-Porteiro",
+      "stepCount": 19
+    }
+  ]
+}

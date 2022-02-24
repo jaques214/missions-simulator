@@ -8,7 +8,6 @@ package structures;
 import exceptions.EmptyCollectionException;
 /**
  *
- * @author Jaques
  */
 public interface HeapADT<T> extends BinaryTreeADT<T> {
     /**

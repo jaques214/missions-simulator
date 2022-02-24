@@ -5,10 +5,6 @@
  */
 package structures;
 
-/**
- *
- * @author Jaques
- */
 public class Pair<T> {
     protected Pair<T> previous;
     protected T vertex;

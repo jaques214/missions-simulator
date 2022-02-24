@@ -6,9 +6,8 @@
 package structures;
 
 /**
- * Nó de uma lista ligada que contém a infomação do seu próximo, cria a sua 
+ * Nó de uma lista ligada que contém a informação do seu próximo, cria a sua
  * referência e armazena a sua informação
- * @author Jaques
  * @param <T>
  */
 public class LinkedNode<T> {

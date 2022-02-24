@@ -1,24 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package structures;
 
 import exceptions.ElementNotFoundException;
 import exceptions.EmptyCollectionException;
 
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @param <T>
- * @author Jaques
  */
-public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
-        implements BinarySearchTreeADT<T> {
-
+public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T> implements BinarySearchTreeADT<T> {
     protected int height;
     protected int maxIndex;
 
@@ -47,7 +37,7 @@ public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
         if (tree.length < maxIndex * 2 + 3) {
             expandCapacity();
         }
-        Comparable<T> tempelement = (Comparable<T>) element;
+        Comparable<T> tempElement = (Comparable<T>) element;
 
         if (isEmpty()) {
             tree[0] = element;
@@ -56,10 +46,8 @@ public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
             boolean added = false;
             int currentIndex = 0;
             while (!added) {
-                if (tempelement.compareTo((tree[currentIndex])) < 0) {
-                    /**
-                     * go left
-                     */
+                if (tempElement.compareTo((tree[currentIndex])) < 0) {
+                    // go left
                     if (tree[currentIndex * 2 + 1] == null) {
                         tree[currentIndex * 2 + 1] = element;
                         added = true;
@@ -71,9 +59,7 @@ public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
                         currentIndex = currentIndex * 2 + 1;
                     }
                 } else {
-                    /**
-                     * go right
-                     */
+                    // go right
                     if (tree[currentIndex * 2 + 2] == null) {
                         tree[currentIndex * 2 + 2] = element;
                         added = true;
@@ -115,7 +101,7 @@ public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
                 try {
                     replace(i);
                 } catch (EmptyCollectionException ex) {
-                    Logger.getLogger(ArrayBinarySearchTree.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex.getMessage());
                 }
                 count--;
             }
@@ -140,9 +126,9 @@ public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
 
     protected void replace(int targetIndex) throws EmptyCollectionException {
         int currentIndex, oldIndex, newIndex;
-        ArrayUnorderedList<Integer> oldlist = new ArrayUnorderedList<>();
-        ArrayUnorderedList<Integer> newlist = new ArrayUnorderedList<>();
-        ArrayUnorderedList<Integer> templist = new ArrayUnorderedList<>();
+        ArrayUnorderedList<Integer> oldList = new ArrayUnorderedList<>();
+        ArrayUnorderedList<Integer> newList = new ArrayUnorderedList<>();
+        ArrayUnorderedList<Integer> tempList = new ArrayUnorderedList<>();
         Iterator<Integer> oldIt, newIt;
 
         // if target node has no children
@@ -154,35 +140,35 @@ public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
         } // if target node only has a left child
         else if ((tree[targetIndex * 2 + 1] != null) && (tree[targetIndex * 2 + 2] == null)) {
 
-            // fill newlist with indices of nodes that will replace 
-            // the corresponding indices in oldlist
-            // fill newlist
+            // fill new list with indices of nodes that will replace
+            // the corresponding indices in old list
+            // fill new list
             currentIndex = targetIndex * 2 + 1;
-            templist.addToRear(currentIndex);
-            while (!templist.isEmpty()) {
-                currentIndex = (templist.removeFirst());
-                newlist.addToRear(currentIndex);
+            tempList.addToRear(currentIndex);
+            while (!tempList.isEmpty()) {
+                currentIndex = (tempList.removeFirst());
+                newList.addToRear(currentIndex);
                 if ((currentIndex * 2 + 2) <= (Math.pow(2, height) - 2)) {
-                    templist.addToRear(currentIndex * 2 + 1);
-                    templist.addToRear(currentIndex * 2 + 2);
+                    tempList.addToRear(currentIndex * 2 + 1);
+                    tempList.addToRear(currentIndex * 2 + 2);
                 }
             }
 
-            // fill oldlist
+            // fill old list
             currentIndex = targetIndex;
-            templist.addToRear(currentIndex);
-            while (!templist.isEmpty()) {
-                currentIndex = (templist.removeFirst());
-                oldlist.addToRear(currentIndex);
+            tempList.addToRear(currentIndex);
+            while (!tempList.isEmpty()) {
+                currentIndex = (tempList.removeFirst());
+                oldList.addToRear(currentIndex);
                 if ((currentIndex * 2 + 2) <= (Math.pow(2, height) - 2)) {
-                    templist.addToRear(currentIndex * 2 + 1);
-                    templist.addToRear(currentIndex * 2 + 2);
+                    tempList.addToRear(currentIndex * 2 + 1);
+                    tempList.addToRear(currentIndex * 2 + 2);
                 }
             }
 
             // do replacement
-            oldIt = oldlist.iterator();
-            newIt = newlist.iterator();
+            oldIt = oldList.iterator();
+            newIt = newList.iterator();
             while (newIt.hasNext()) {
                 oldIndex = oldIt.next();
                 newIndex = newIt.next();
@@ -192,35 +178,35 @@ public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
         } // if target node only has a right child
         else if ((tree[targetIndex * 2 + 1] == null) && (tree[targetIndex * 2 + 2] != null)) {
 
-            // fill newlist with indices of nodes that will replace 
-            // the corresponding indices in oldlist
-            // fill newlist
+            // fill new list with indices of nodes that will replace
+            // the corresponding indices in old list
+            // fill new list
             currentIndex = targetIndex * 2 + 2;
-            templist.addToRear(new Integer(currentIndex));
-            while (!templist.isEmpty()) {
-                currentIndex = ((Integer) templist.removeFirst()).intValue();
-                newlist.addToRear(new Integer(currentIndex));
+            tempList.addToRear(currentIndex);
+            while (!tempList.isEmpty()) {
+                currentIndex = tempList.removeFirst();
+                newList.addToRear(currentIndex);
                 if ((currentIndex * 2 + 2) <= (Math.pow(2, height) - 2)) {
-                    templist.addToRear(new Integer(currentIndex * 2 + 1));
-                    templist.addToRear(new Integer(currentIndex * 2 + 2));
+                    tempList.addToRear(currentIndex * 2 + 1);
+                    tempList.addToRear(currentIndex * 2 + 2);
                 }
             }
 
-            // fill oldlist
+            // fill old list
             currentIndex = targetIndex;
-            templist.addToRear(new Integer(currentIndex));
-            while (!templist.isEmpty()) {
-                currentIndex = ((Integer) templist.removeFirst()).intValue();
-                oldlist.addToRear(new Integer(currentIndex));
+            tempList.addToRear(currentIndex);
+            while (!tempList.isEmpty()) {
+                currentIndex = tempList.removeFirst();
+                oldList.addToRear(currentIndex);
                 if ((currentIndex * 2 + 2) <= (Math.pow(2, height) - 2)) {
-                    templist.addToRear(new Integer(currentIndex * 2 + 1));
-                    templist.addToRear(new Integer(currentIndex * 2 + 2));
+                    tempList.addToRear(currentIndex * 2 + 1);
+                    tempList.addToRear(currentIndex * 2 + 2);
                 }
             }
 
             // do replacement
-            oldIt = oldlist.iterator();
-            newIt = newlist.iterator();
+            oldIt = oldList.iterator();
+            newIt = newList.iterator();
             while (newIt.hasNext()) {
                 oldIndex = oldIt.next();
                 newIndex = newIt.next();
@@ -243,35 +229,35 @@ public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
             // if currentIndex has a right child
             if (tree[currentRoot * 2 + 2] != null) {
 
-                // fill newlist with indices of nodes that will replace 
-                // the corresponding indices in oldlist
-                // fill newlist
+                // fill new list with indices of nodes that will replace
+                // the corresponding indices in old list
+                // fill new list
                 currentIndex = currentRoot * 2 + 2;
-                templist.addToRear(new Integer(currentIndex));
-                while (!templist.isEmpty()) {
-                    currentIndex = ((Integer) templist.removeFirst()).intValue();
-                    newlist.addToRear(new Integer(currentIndex));
+                tempList.addToRear(currentIndex);
+                while (!tempList.isEmpty()) {
+                    currentIndex = tempList.removeFirst();
+                    newList.addToRear(currentIndex);
                     if ((currentIndex * 2 + 2) <= (Math.pow(2, height) - 2)) {
-                        templist.addToRear(new Integer(currentIndex * 2 + 1));
-                        templist.addToRear(new Integer(currentIndex * 2 + 2));
+                        tempList.addToRear(currentIndex * 2 + 1);
+                        tempList.addToRear(currentIndex * 2 + 2);
                     }
                 }
 
-                // fill oldlist
+                // fill old list
                 currentIndex = currentRoot;
-                templist.addToRear(new Integer(currentIndex));
-                while (!templist.isEmpty()) {
-                    currentIndex = ((Integer) templist.removeFirst()).intValue();
-                    oldlist.addToRear(new Integer(currentIndex));
+                tempList.addToRear(currentIndex);
+                while (!tempList.isEmpty()) {
+                    currentIndex = tempList.removeFirst();
+                    oldList.addToRear(currentIndex);
                     if ((currentIndex * 2 + 2) <= (Math.pow(2, height) - 2)) {
-                        templist.addToRear(new Integer(currentIndex * 2 + 1));
-                        templist.addToRear(new Integer(currentIndex * 2 + 2));
+                        tempList.addToRear(currentIndex * 2 + 1);
+                        tempList.addToRear(currentIndex * 2 + 2);
                     }
                 }
 
                 // do replacement
-                oldIt = oldlist.iterator();
-                newIt = newlist.iterator();
+                oldIt = oldList.iterator();
+                newIt = newList.iterator();
                 while (newIt.hasNext()) {
                     oldIndex = oldIt.next();
                     newIndex = newIt.next();
@@ -285,12 +271,9 @@ public class ArrayBinarySearchTree<T> extends ArrayBinaryTree<T>
     }
 
     @Override
-    public void removeAllOccurrences(T targetElement) {
-        try {
-            while (contains(targetElement)) {
-                removeElement(targetElement);
-            }
-        } catch (Exception ElementNotFoundException) {
+    public void removeAllOccurrences(T targetElement) throws ElementNotFoundException {
+        while (contains(targetElement)) {
+            removeElement(targetElement);
         }
     }
 

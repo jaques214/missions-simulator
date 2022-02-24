@@ -1,0 +1,17 @@
+{
+  "missionID": "pata de coelho",
+  "version": 1,
+  "target": {
+    "division": "Escritório 1",
+    "type": "documento"
+  },
+  "results": [
+    {
+      "points": 70,
+      "state": "Mission Success",
+      "pathToTarget": "Garagem - Escada de Emergência - Escritório 1",
+      "pathToExit": "Escritório 1 - Escada de Emergência",
+      "stepCount": 4
+    }
+  ]
+}

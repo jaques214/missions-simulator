@@ -9,7 +9,6 @@ import exceptions.NonComparableElementException;
 
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class DoubleLinkedOrderedList<T extends Comparable> extends DoubleLinkedList<T> implements OrderedListADT<T> {

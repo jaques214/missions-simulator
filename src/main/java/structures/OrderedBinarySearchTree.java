@@ -11,7 +11,6 @@ import exceptions.NonComparableElementException;
 import java.util.Iterator;
 /**
  *
- * @author Jaques
  * @param <T>
  */
 public class OrderedBinarySearchTree<T> extends LinkedBinarySearchTree<T> implements OrderedListADT<T> {
